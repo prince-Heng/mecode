@@ -122,17 +122,17 @@
         )
 
 
-        // // 退出登陆
-        // $('#user_quit').click(function() {
-        //     $.post('http://localhost:8000/admin/logout', function(res) {
+        // 退出登陆
+        $('#user_quit').click(function() {
+            $.post('http://localhost:8000/admin/logout', function(res) {
 
-        //         console.log(res);
+                console.log(res);
 
-        //         if (res.code == 200) {
-        //             location.herf = './login.html'
-        //         }
-        //     })
-        // })
+                if (res.code == 200) {
+                    window.location.href = './login.html'
+                }
+            })
+        })
     </script>
 </body>
 
