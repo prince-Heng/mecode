@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/iconfont.css">
     <link rel="stylesheet" href="css/main.css">
+    <script src="./js/user.js"></script>
     <script src="js/jquery-1.12.4.min.js"></script>
 </head>
 
@@ -109,6 +110,10 @@
     <script>
         // <!-- 获取用户信息 -->
 
+
+
+
+
         $.get(
             'http://localhost:8000/admin/getuser',
             function(res) {
@@ -124,14 +129,13 @@
 
         // 退出登陆
         $('#user_quit').click(function() {
-            $.post('http://localhost:8000/admin/logout', function(res) {
 
-                console.log(res);
-
+            user.logOut(function(res) {
                 if (res.code == 200) {
                     window.location.href = './login.html'
                 }
             })
+
         })
     </script>
 </body>

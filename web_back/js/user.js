@@ -12,7 +12,11 @@ var user = {
                 Hanshu(res)
             }
         )
+    },
+    logOut: function(Huidiao) {
+        $.post('http://localhost:8000/admin/logout', function(res) {
+            Huidiao(res);
+        })
     }
-
 
 }
