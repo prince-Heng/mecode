@@ -54,21 +54,18 @@
     <script src="./jquery.min.js"></script>
 
     <script src="../web_back/js/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./js/user.js"></script>
     <script>
         // 1.实现登陆页面的登陆效果。点击登录按钮，发送请求
 
         $('#uesr_btn').click(function() {
             var myUser_name = $('#myUser_name').val().trim();
-            console.log(myUser_name);
+            // console.log(myUser_name);
 
             var myPassword = $('#myPassword').val().trim();
-            console.log(myPassword);
+            // console.log(myPassword);
 
-            $.post('http://localhost:8000/admin/login', {
-                user_name: myUser_name,
-                password: myPassword
-            }, function(res) {
-                console.log(res);
+            user.logIn(myUser_name, myPassword, function(res) {
                 if (myUser_name === '' || myPassword === '') {
                     $('#msgInfo').text('不能为空')
                     $('#myModal').modal('show')
@@ -81,7 +78,6 @@
                     $('#msgInfo').text(res.msg);
                     $('#myModal').modal('show');
                 }
-
             })
         })
     </script>
