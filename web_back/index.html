@@ -109,22 +109,15 @@
 
     <script>
         // <!-- 获取用户信息 -->
-
-
-
-
-
-        $.get(
-            'http://localhost:8000/admin/getuser',
-            function(res) {
-                // console.log(res);
-                if (res.code == 200) {
-                    $('#userName').text(res.data.nickname)
-                    $('.userimg').prop('src', res.data.user_pic)
-                }
-
+        user.getLog(function(res) {
+            // console.log(res);
+            if (res.code == 200) {
+                $('#userName').text(res.data.nickname)
+                $('.userimg').prop('src', res.data.user_pic)
             }
-        )
+
+        })
+
 
 
         // 退出登陆

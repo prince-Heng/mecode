@@ -8,7 +8,7 @@ var user = {
                 password: myPassword
             },
             function(res) {
-                console.log(res);
+                // console.log(res);
                 Hanshu(res)
             }
         )
@@ -17,6 +17,13 @@ var user = {
         $.post('http://localhost:8000/admin/logout', function(res) {
             Huidiao(res);
         })
+    },
+    getLog: function(Huidiao) {
+        $.get('http://localhost:8000/admin/getuser',
+            function(res) {
+                Huidiao(res)
+            })
     }
+
 
 }
