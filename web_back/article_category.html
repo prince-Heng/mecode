@@ -15,6 +15,7 @@
     <script src="./js/category.js"></script>
     <!-- js模块引擎文件 -->
     <script src="./js/template-web.js"></script>
+    <script src="./js/article.category.js"></script>
 </head>
 
 <body>
@@ -130,12 +131,9 @@
         // 模块引擎：给我数据和模块，我返回html字符串
 
         // 首先获取（初始化）文章列表---------------------
-        function setCategory() {
+        function getShow() {
 
-            $.get(APIURLS.category_show, function(res) {
-
-                // console.log(res);
-
+            article_category.getAndShow(function(res) {
                 // 模板引擎渲染:template(模板引擎,数据)
                 // html字符串 = template(模块,数据)
 
@@ -144,12 +142,10 @@
                 // 添加到父元素中
 
                 $('#tempFarher').html(temp);
-
             })
-
         }
 
-        setCategory();
+        getShow();
 
         // 删除文章列表------------------------------
         // 鼠标点击删除按钮,删除文章.因为后续会有增加列表,所以会有动态添加元素,用事件委托
@@ -158,18 +154,14 @@
 
             var name_id = $(this).attr('data_id')
 
-            console.log(name_id);
+            // console.log(name_id);
 
 
-            $.post(APIURLS.category_delete, {
-
-                'id': name_id
-
-            }, function(res) {
+            article_category.delete(name_id, function(res) {
 
                 if (res.code == 200) {
 
-                    setCategory();
+                    getShow();
 
                 } else {
 
@@ -177,8 +169,8 @@
 
                 }
             })
-
         })
+
 
 
         // 新增文章列表
@@ -199,17 +191,15 @@
 
                 // 发送请求
                 // console.log(name, slug);
-                $.post(APIURLS.category_add, {
-                    'name': name,
-                    'slug': slug
-                }, function(res) {
+                article_category.add(name, slug, function(res) {
                     // console.log(res);
                     if (res.code == 200) {
                         // 如果请求成功，页面重新获取数据（更新数据），并且内容清空，隐藏弹窗
-                        setCategory();
+                        getShow();
                         $("#recipient-name").val(' ')
                         $("#recipient-slug").val(' ')
                         $('#addModal').modal('hide')
+
                     } else {
                         alert(res.msg);
                     }
@@ -258,19 +248,14 @@
                 }
 
 
-                $.post(APIURLS.category_edit, {
-                        'id': id,
-                        'name': name,
-                        'slug': slug
-                    },
-                    function(res) {
-                        console.log(res);
-                        if (res.code === 200) {
-                            setCategory();
-                            $('#editModal').modal('hide')
-                        }
+                article_category.edit(id, name, slug, function(res) {
+                    // console.log(res);
+                    if (res.code === 200) {
+                        getShow();
+                        $('#editModal').modal('hide')
+                    }
 
-                    })
+                })
             })
             // 点击关闭按钮，隐藏模态框
         $("#model_close").click(function() {
