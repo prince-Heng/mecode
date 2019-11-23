@@ -1,9 +1,7 @@
 var user = {
-
-
     logIn: function(myUser_name, myPassword, Hanshu) {
         $.post(
-            'http://localhost:8000/admin/login', {
+            APIURLS.user_logIn, {
                 user_name: myUser_name,
                 password: myPassword
             },
@@ -14,12 +12,12 @@ var user = {
         )
     },
     logOut: function(Huidiao) {
-        $.post('http://localhost:8000/admin/logout', function(res) {
+        $.post(APIURLS.user_logOut, function(res) {
             Huidiao(res);
         })
     },
     getLog: function(Huidiao) {
-        $.get('http://localhost:8000/admin/getuser',
+        $.get(APIURLS.user_getLog,
             function(res) {
                 Huidiao(res)
             })

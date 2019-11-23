@@ -52,7 +52,7 @@
     </div>
     <!-- /.modal -->
     <script src="./jquery.min.js"></script>
-
+    <script src="./js/category.js"></script>
     <script src="../web_back/js/bootstrap/js/bootstrap.min.js"></script>
     <script src="./js/user.js"></script>
     <script>
@@ -65,15 +65,17 @@
             var myPassword = $('#myPassword').val().trim();
             // console.log(myPassword);
 
+            if (myUser_name === '' || myPassword === '') {
+                $('#msgInfo').text('不能为空')
+                $('#myModal').modal('show')
+                return;
+            }
             user.logIn(myUser_name, myPassword, function(res) {
-                if (myUser_name === '' || myPassword === '') {
-                    $('#msgInfo').text('不能为空')
-                    $('#myModal').modal('show')
-                    return;
-                }
+                // console.log(res);
+
                 if (res.code == 200) {
                     // location.href= './index.html'
-                    location.href = './index.html'
+                    window.location.href = './index.html';
                 } else {
                     $('#msgInfo').text(res.msg);
                     $('#myModal').modal('show');
