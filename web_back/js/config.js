@@ -15,6 +15,10 @@ var APIURLS = {
     // 编辑文章接口
     category_edit: baseUrl + '/admin/category_edit',
     // 删除文章接口
-    category_delete: baseUrl + '/admin/category_delete'
+    category_delete: baseUrl + '/admin/category_delete',
+
+
+    // 文章搜索
+    article_search: baseUrl + 'admin/search',
 
 }

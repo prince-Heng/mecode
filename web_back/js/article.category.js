@@ -5,7 +5,6 @@ var article_category = {
             hanshu(res)
         })
     },
-
     // 删除
     delete: function(name_id, hanshu) {
         $.post(APIURLS.category_delete, {
@@ -14,10 +13,7 @@ var article_category = {
             hanshu(res)
         })
     },
-
-
     // 增加
-
     add: function(name, slug, hanshu) {
         $.post(APIURLS.category_add, {
             'name': name,
@@ -26,12 +22,7 @@ var article_category = {
             hanshu(res)
         })
     },
-
-
     // 编辑
-
-
-
     edit: function(cata_id, cata_name, cata_sulg, Huidiao) {
         $.post(APIURLS.category_edit, {
             'id': cata_id,
