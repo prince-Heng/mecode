@@ -23,29 +23,25 @@
             文章编辑
         </div>
         <div class="container-fluid common_con">
-            <form class="form-horizontal article_form">
+            <form class="form-horizontal article_form" id="myform">
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">文章标题：</label>
                     <div class="col-sm-10">
-                        <input type="email" class="form-control" id="inputEmail3" value="文章标题文字">
+                        <input type="text" name="title" class="form-control" id="article_title" value="文章标题文字">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputPassword3" class="col-sm-2 control-label">文章封面：</label>
                     <div class="col-sm-10">
-                        <img src="images/pic06.jpg" class="article_cover">
-                        <input type="file" id="exampleInputFile">
+                        <img src="images/pic06.jpg" class="article_cover" id="article_cover">
+                        <input type="file" id="exampleInputFile" name="cover">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">文章类别：</label>
                     <div class="col-sm-4">
-                        <select class="form-control">
-                            <option>类别一</option>
-                            <option>类别二</option>
-                            <option>类别三</option>
-                            <option selected>类别四</option>
-                            <option>类别五</option>
+                        <select class="form-control" id="father" name="type">
+
                         </select>
                     </div>
                 </div>
@@ -54,7 +50,7 @@
                     <div class="col-sm-4">
 
                         <div class="input-group">
-                            <input type="text" class="form-control" value="2019-05-17" id="dateinput">
+                            <input type="text" class="form-control" name="date" value="2019-05-17" id="dateinput">
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="button"
                                     onclick="jeDate('#dateinput',{trigger:false,format: 'YYYY-MM-DD'})"><i
@@ -71,13 +67,73 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-success">修改</button>
+                        <button type="button" class="btn btn-success" id="btnSave">修改</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
+    <script src="./js/template-web.js"></script>
+    <script src="./js/config.js"></script>
+    <script src="./js/article.category.js"></script>
+    <script src="./js/article.js"></script>
 
+    <script id="temp_edit" type="text/html">
+        {{each data item}}
+        <option value='{{item.id}}'>{{item.name}}</option>
+        {{/each}}
+    </script>
+    <script>
+        // 页面转换首先获取对应的id地址
+        var id = location.search.substr(4)
+            // alert(id)
+            // 根据id值获取详情
+        article_list.getDetail(id, function(res) {
+            // console.log(res);
+
+
+            // 先获取当前文章的类型的id值
+            var typeId = res.data.type;
+
+
+            // 显示在表单上
+            $("#article_title").val(res.data.title);
+            $("#article_cover").prop('src', res.data.cover);
+            $("#dateinput").val(res.data.date);
+            $("#rich_content").val(res.data.content);
+
+            // 获取文章类别
+            article_category.getAndShow(function(res) {
+                // console.log(res);
+
+                var temp_edit = template('temp_edit', res)
+
+                $("#father").html(temp_edit)
+                    // 让当前文章所属的类别 id处于选中状态
+                $("#father").val(typeId)
+            })
+        })
+
+        // 修改后点击保存
+        $("#btnSave").click(function() {
+            // new一个formdate收集数据
+            var fd = new FormData(document.getElementById('myform'))
+
+            // 新加一个参数
+            fd.append('id', id)
+
+            // 处理富文本编辑器
+            fd.set('content', tinyMCE.activeEditor.getContent());
+            // 调用接口
+            article_list.edit(fd, function(res) {
+                if (res.code === 200) {
+                    alert('修改成功')
+                } else {
+                    alert(res.msg)
+                }
+            })
+        })
+    </script>
 </body>
 
 </html>

@@ -19,6 +19,10 @@ var APIURLS = {
 
 
     // 文章搜索
-    article_search: baseUrl + 'admin/search',
+    article_search: baseUrl + '/admin/search',
+    article_del: baseUrl + '/admin/article_delete',
+    article_add: baseUrl + '/admin/article_publish',
+    article_edit: baseUrl + '/admin/article_edit',
 
+    article_month_count: baseUrl + '/admin/month_article_count',
 }
