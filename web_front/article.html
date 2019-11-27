@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
 </head>
 
 <body>
@@ -28,23 +29,23 @@
         <div class="menu">
             <div class="menu_collapse fl">
                 <a href="javascript:;" class="level_one"><i class="fa fa-list-ul"></i>全部分类</a>
-                <ul class="level_two">
-                    <li class="up"></li>
+                <ul class="level_two" id="level_two">
+                    <!-- <li class="up"></li>
                     <li><a href="#">最 新</a></li>
                     <li><a href="#">科 技</a></li>
                     <li><a href="#">股 市</a></li>
                     <li><a href="#">商 品</a></li>
                     <li><a href="#">外 汇</a></li>
-                    <li><a href="#">公 司</a></li>
+                    <li><a href="#">公 司</a></li> -->
                 </ul>
             </div>
-            <ul class="left_menu fl">
-                <li><a href="#">最 新</a></li>
+            <ul class="left_menu fl" id="left_menu">
+                <!-- <li><a href="#">最 新</a></li>
                 <li><a href="#">科 技</a></li>
                 <li><a href="#">股 市</a></li>
                 <li><a href="#">商 品</a></li>
                 <li><a href="#">外 汇</a></li>
-                <li><a href="#">公 司</a></li>
+                <li><a href="#">公 司</a></li> -->
             </ul>
             <ul class="right_menu fr">
                 <li><a href="#">科技专题</a></li>
@@ -58,15 +59,14 @@
             <div class="breadcrumb">
                 当前位置： <a href="#">首页</a> &gt; <a href="#">科技</a> &gt; 文章详情
             </div>
-            <h3 class="article_title">马斯克的新花样？连接人脑和电脑的初创公司又筹了一笔钱</h3>
-            <div class="article_info">杰克 发布于 2019-05-08 07:08:46&nbsp;&nbsp;&nbsp;分类: 奇趣事&nbsp;&nbsp;&nbsp;阅读:
-                (98)&nbsp;&nbsp;&nbsp;评论: (0)</div>
-            <div class="article_con">
+            <h3 class="article_title" id="article_title">马斯克的新花样？连接人脑和电脑的初创公司又筹了一笔钱</h3>
+            <div class="article_info"><span id="article_author">杰克</span> 发布于 <span id="article_date">2019-05-08 07:08:46</span>&nbsp;&nbsp;&nbsp;分类: <span id="article_type">奇趣事</span>&nbsp;&nbsp;&nbsp;阅读: (98)&nbsp;&nbsp;&nbsp;评论: (0)</div>
+            <div class="article_con" id="article_con">
 
                 <p>“上天入地”还不够？硅谷“钢铁侠”马斯克名下一家低调的公司最近又融了一大笔钱。</p>
 
-                <p>马斯克投资的一家小型且不为人熟知的脑机接口（brain-computer
-                    interface）公司Neuralink披露，该公司融到了3900万美元，虽然不及公司计划的融资额5100万美元，但也比上次的融资多了不少。</p>
+                <p>马斯克投资的一家小型且不为人熟知的脑机接口（brain-computer interface）公司Neuralink披露，该公司融到了3900万美元，虽然不及公司计划的融资额5100万美元，但也比上次的融资多了不少。
+                </p>
 
                 <p>两年前该公司曾计划融资1亿美元，但只拿到了2700万美元的融资。</p>
 
@@ -76,56 +76,36 @@
 
             </div>
             <div class="article_links">
-                上一篇： <a href="#">世界第一台可以玩游戏的冰箱</a><br>
-                下一篇： <a href="#">世界第一个可以玩游戏的马桶、世界上第一个可以玩游戏的茶杯</a>
+                上一篇： <a href="#">世界第一台可以玩游戏的冰箱</a><br> 下一篇： <a href="#">世界第一个可以玩游戏的马桶、世界上第一个可以玩游戏的茶杯</a>
             </div>
 
             <form action="" class="comment_form">
                 <div class="form_group">
                     <label>用户名：</label>
-                    <input type="text" placeholder="请输入用户名" class="comment_name">
+                    <input type="text" placeholder="请输入用户名" class="comment_name" id="name">
                 </div>
                 <div class="form_group">
                     <label>评论内容：</label>
-                    <textarea placeholder="请发表您的评论" class="comment_input"></textarea>
+                    <textarea placeholder="请发表您的评论" class="comment_input" id="content"></textarea>
                 </div>
                 <div class="form_group">
-                    <input type="submit" name="" value="评 论" class="comment_sub"></div>
+                    <input type="button" name="" value="评 论" class="comment_sub" id="butAdd"></div>
             </form>
 
             <div class="comment_count">
                 4条评论
             </div>
 
-            <div class="comment_list_con">
-                <div class="comment_detail_list">
-                    <div class="person_pic fl">乔</div>
-                    <div class="name_time fl"><b>虚竹</b><span>4小时前</span></div>
-                    <div class="comment_text fl">
-                        遏制茅台酒价格过快上涨，多渠道供给，就不一定要买，租茅台酒也可以的，租售同权。开发共有产权茅台酒，让老百姓喝得起茅台酒，饮者有其酒。
-                    </div>
-                </div>
-                <div class="comment_detail_list">
-                    <div class="person_pic fl">段</div>
-                    <div class="name_time fl"><b>虚竹</b><span>4小时前</span></div>
-                    <div class="comment_text fl">
-                        遏制茅台酒价格过快上涨，多渠道供给，就不一定要买，租茅台酒也可以的，租售同权。开发共有产权茅台酒，让老百姓喝得起茅台酒，饮者有其酒。
-                    </div>
-                </div>
-                <div class="comment_detail_list">
-                    <div class="person_pic fl">虚</div>
-                    <div class="name_time fl"><b>虚竹</b><span>4小时前</span></div>
-                    <div class="comment_text fl">
-                        遏制茅台酒价格过快上涨，多渠道供给，就不一定要买，租茅台酒也可以的，租售同权。开发共有产权茅台酒，让老百姓喝得起茅台酒，饮者有其酒。
-                    </div>
-                </div>
-                <div class="comment_detail_list">
+            <div class="comment_list_con" id="comment_list">
+
+                <!-- <div class="comment_detail_list">
                     <div class="person_pic fl">王</div>
                     <div class="name_time fl"><b>虚竹</b><span>4小时前</span></div>
                     <div class="comment_text fl">
                         遏制茅台酒价格过快上涨，多渠道供给，就不一定要买，租茅台酒也可以的，租售同权。开发共有产权茅台酒，让老百姓喝得起茅台酒，饮者有其酒。
                     </div>
-                </div>
+                </div> -->
+
             </div>
         </div>
         <div class="right_con setfl">
@@ -204,7 +184,132 @@
         <p>CopyRight © 2019 深圳大事件信息技术股份有限公司 All Rights Reserved</p>
         <p>电话：0755-****888 粤ICP备*******8号</p>
     </div>
+    <script type="text/html" id="temp_cata">
+        {{each data item}}
+        <li><a href="#">{{item.name}}</a></li>
+        {{/each}}
+    </script>
+    <script type="text/html" id="temp_comment">
+        {{each data item}}
+        <div class="comment_detail_list">
+            <div class="person_pic fl">{{item.name.substr(0,1)}}</div>
+            <div class="name_time fl"><b>{{item.name}}</b><span>{{item.relativeDt}}</span></div>
+            <div class="comment_text fl">
+                {{item.content}}
+            </div>
+        </div>
+        {{/each}}
+    </script>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script src='./js/bootbox.min.js'></script>
+    <script src="./js/bootstrap.min.js"></script>
 
+    <script src="./js/template-web.js"></script>
+    <script src="./js/unit/article.category.js"></script>
+    <script src="./js/unit/article.js"></script>
+    <script src="./js/unit/config.js"></script>
+    <script src="./js/unit/comment.js"></script>
+
+    <script src="./js/dayjs/dayjs.min.js"></script>
+    <script src="./js/dayjs/zh_cn.js"></script>
+    <script src="./js/dayjs/relative.min.js"></script>
+    <script>
+        // 想要将文章类别显示，首先确定需要用的接口：后台接口中的文章类别搜索，先根据返回值获取文章类别名
+        article_category.getAndShow(function(res) {
+            // console.log(res);
+            // 模板引擎，渲染数据
+            var strHtml = template('temp_cata', res)
+            $("#left_menu").html(strHtml)
+            $("#level_two").html('<li class="up"></li>' + strHtml)
+        })
+    </script>
+
+
+    <script>
+        // dayjs使用插件
+        // 因为你引入了 “relative.min.js”，
+        // 所以就有了 dayjs_plugin_relativeTime
+
+        dayjs.extend(dayjs_plugin_relativeTime)
+            // dayjs设置语言
+        dayjs.locale('zh-cn')
+        var id = location.search.substr(4); //通过地址栏获取对应id
+
+
+        // 根据id去请求文章详情，并显示
+        article_list.getDetail(id, function(res) {
+            // console.log(res);
+            // 将信息在dom上面显示
+            // 在文章详情数据中，res.data.type保存是类型的编号
+            var typeId = res.data.type
+            console.log(typeId);
+
+            $("#article_title").html(res.data.title)
+            $("#article_author").html(res.data.author)
+            $("#article_date").html(res.data.date)
+                // $("#article_type").html(res.data.type)
+            $("#article_con").html(res.data.content)
+                // 在文章详情数据中，res.data.type保存是类型的编号
+                // 但是，要显示在页面上的却要是类型的名称。
+                // 思路： 
+                //  1. 先取出所有的类型数据
+                //  2. 在其中找出编号与res.data.type相同的那一项，再取出它的名称
+            article_category.getAndShow(function(res) {
+                // console.log(res);
+                var rs = res.data.find(function(item) {
+                    if (item.id == typeId) {
+                        return true;
+                    }
+                })
+                if (rs) {
+                    $("#article_type").html(rs.name)
+                }
+            })
+        })
+    </script>
+
+    <script>
+        // 添加评论
+        $("#butAdd").click(function() {
+                // 获取内容
+                var name = $("#name").val().trim();
+                var content = $("#content").val().trim();
+                // 判断不能为空
+                if (name == '' || content == '') {
+                    // alert('不能为空')
+                    //    bootBox.js来代替alert
+                    bootbox.alert("不能为空!");
+                    return;
+                }
+                comment.add(name, content, id, function(res) {
+                    // console.log(res)
+                    if (res.code == 200) {
+                        // 清空留言区域
+                        var name = $("#name").val('')
+                        var content = $("#content").val('')
+                        alert('添加成功')
+                        getAndShow()
+                    }
+                })
+
+            })
+            // 获取评论
+        function getAndShow() {
+            comment.get(id, function(res) {
+                console.log(res);
+                res.data.reverse()
+                    // 对于所有的评论数据，给每一条数据中额外添加一个相对时间的属性
+                    // 然后，在模板引擎中使用这个属性
+                res.data.forEach(function(item) {
+                    item.relativeDt = dayjs(item.dt).toNow()
+                })
+                console.log(res.data)
+                var strHtml = template('temp_comment', res)
+                $('#comment_list').html(strHtml)
+            })
+        }
+        getAndShow()
+    </script>
 </body>
 
 </html>
